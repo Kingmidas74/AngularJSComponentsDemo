@@ -1,0 +1,26 @@
+.linear-gradient(@from-color:black, @to-color:white, @break-position:50%) {
+    background: linear-gradient(left, @from-color @break-position, @to-color @break-position);
+    background: -ms-linear-gradient(left, @from-color @break-position, @to-color @break-position);
+    background: -moz-linear-gradient(left, @from-color @break-position, @to-color @break-position);
+    background: -webkit-linear-gradient(left, @from-color @break-position, @to-color @break-position);
+}
+
+.success {
+    background-color: @succes-background-color !important;
+    color: @succes-foreground-color !important;
+}
+
+.error {
+    background-color: @error-background-color !important;
+    color: @error-foreground-color !important;
+}
+
+.warning {
+    background-color: @warinig-background-color !important;
+    color: @warinig-foreground-color !important;
+}
+
+.info {
+    background-color: @info-background-color !important;
+    color: @info-foreground-color !important;
+}

@@ -1,0 +1,97 @@
+div.textfield {
+
+    position:relative; 
+    padding:@grid-step*3;
+
+    &>label {
+        position:absolute;
+        pointer-events:none;
+        left:@grid-step*3;
+        top:@grid-step*5;
+        .body2(@textinput-foreground);
+        transition:0.2s @animation-type all; 
+        -moz-transition:0.2s @animation-type all; 
+        -webkit-transition:0.2s @animation-type all;
+
+        &.required:after {
+            content: '*';
+        }
+    }
+
+    &>span.bar { 
+        position:relative; 
+        display:block; 
+        width:100%;
+
+        &:before, &:after {
+            content:'';
+            height:2px; 
+            width:0;
+            position:absolute;
+            background:@textinput-active; 
+            transition:0.2s @animation-type all; 
+            -moz-transition:0.2s @animation-type all; 
+            -webkit-transition:0.2s @animation-type all;
+        }
+        &:before {
+            left:50%;
+        }
+        &:after {
+            right:50%; 
+        }
+    }
+
+    &>span.error-message {
+        .body2(@error-background-color);
+        display: none;
+    }
+
+    &>input[type="number"]::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+    }
+    &>input[type="number"] {
+        -moz-appearance: textfield;
+    }
+    &>input {
+        padding:@grid-step;
+        display:block;
+        width:100%;
+        border:none;
+        border-bottom:1px solid @textinput-active;
+        background: transparent;
+        text-align: right;
+        .body2(@textinput-foreground);
+
+        &:focus {
+            outline:none;
+            border:none;
+            &~label {
+                top:@grid-step;
+                .body2(@textinput-active)
+            }
+
+            & ~ span.bar:before, & ~ span.bar:after {
+                width:50%;
+            }
+
+        }
+        
+        &:valid {           
+            &~label {
+               // top:@grid-step;
+            }
+        }
+
+        &:invalid {
+            &~span.error-message {
+                display: block;
+            }
+        }
+
+        &[value]:not([value=""]) {
+            &~span.error-message {
+                display: none;
+            }
+        }
+    }
+}

@@ -1,0 +1,21 @@
+let DemoWeb_GUI = angular.module('DemoWeb.Components', [
+    'vk-api-angular',
+    'DemoWeb.Components.Templates',    
+    'DemoWeb.Components.Panel',
+    'DemoWeb.Components.Notification',
+    'DemoWeb.Components.Navigation',
+    'DemoWeb.Components.AppBar',
+    'DemoWeb.Components.CardTable',
+    'DemoWeb.Components.FillUp',
+    'DemoWeb.Components.Menu',
+    'DemoWeb.Components.User',
+    'DemoWeb.Components.Language',
+    'DemoWeb.Components.Network',
+    'DemoWeb.Components.Console',
+    'DemoWeb.Components.Social',
+    'DemoWeb.Components.SupportChat',
+    'DemoWeb.Components.Validation',
+    'DemoWeb.Components.mrScene',
+    'DemoWeb.Components.Files',
+    'DemoWeb.Components.Controls'
+]);

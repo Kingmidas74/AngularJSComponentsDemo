@@ -1,0 +1,35 @@
+@import (less) "./material-design-iconic-font.css";
+@import "colors";
+@import "fonts";
+@import "variables";
+@import "theme";
+
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+    border: none;
+    padding: 0;
+    margin: 0;
+    outline: none;
+    -webkit-margin-before: 0;
+    -webkit-margin-after: 0;
+    -webkit-margin-start: 0;
+    -webkit-margin-end: 0;
+    -webkit-padding-start: 0;
+    -webkit-font-smoothing: antialiased;    
+    font-weight: @font-regular;
+}
+*:not(p) {
+    user-select: none;
+}
+
+h1,h2,h3,h4,td {
+    font-weight: @font-regular;
+}
+
+*:disabled {
+    opacity: .3;
+    color:@disabled-text-color;
+}

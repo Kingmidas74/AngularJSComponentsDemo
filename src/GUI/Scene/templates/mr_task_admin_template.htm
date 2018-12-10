@@ -1,0 +1,27 @@
+<tr
+    class="progress" style="--progress-value:{{task.Progress}}%;"  data-progress="{{task.Progress}}" 
+    ng-class="{'select': task.Selected, 'removed': !!task.WillBeRemoved}" 
+    ng-click="OpenTaskSettings($event,task)">
+    <td>
+        <mr-checkbox checked="task.Selected"></mr-checkbox>
+    </td>
+    <td></td>
+    <td class="text task-title">
+        <p class="title">{{task.Title}}</p>
+        <p class="data">
+            {{task.Status}}, {{task.Date}}, ID: {{task.Id}}
+        </p>
+    </td>
+    <td class="text">{{task.Frames}}</td>
+    <td class="text task-status">{{task.Resolution}}</td>    
+    <td class="text task-status">{{task.Camera}}</td>    
+    <td>
+        <ng-transclude ng-transclude-slot="defaultActions"></ng-transclude>
+    </td>
+    <td class="text">{{task.Rate}}</td>
+    <td class="numeric">{{task.Cost.toFixed(2)}}</td>
+    <td class="more">
+        <ng-transclude ng-transclude-slot="menu"></ng-transclude>
+        <button class="mr-button flat" ng-click="cancelTaskRemove($event,task)" translate="Cancel"></button>     
+    </td>
+</tr>

@@ -1,0 +1,31 @@
+<tr
+    class="progress" style="--progress-value:{{task.Progress}}%;"  data-progress="{{task.Progress}}" 
+    ng-class="{'select': task.Selected, 'removed': !!task.WillBeRemoved}" 
+    ng-click="OpenTaskSettings($event,task)">
+    <td>
+        <mr-checkbox checked="task.Selected"></mr-checkbox>
+    </td>
+    <td class="status_picture">        
+        <i class="zmdi zmdi-hc zmdi-check" ng-show="task.Status==='FINISHED'"></i>
+        <i class="zmdi zmdi-hc zmdi-alert-triangle" ng-show="task.Status.startsWith('HOLD')"></i>
+        <i class="zmdi zmdi-hc zmdi-alert-circle"  ng-show="task.Status==='ERROR'"></i>
+        <i class="zmdi zmdi-hc zmdi-spinner spinner" ng-show="task.Status==='QUEUED' || task.Status==='RUNNING'"></i>
+    </td>    
+    <td class="text task-title">
+        <p class="title">{{task.Title}}</p>
+        <p class="data">
+            <span class="status {{task.Status}}">{{task.Status}}</span>, ID: {{task.Id}}
+        </p>
+    </td>
+    <td class="text">{{task.Date}}</td>
+    <td class="text">{{task.Frames}}</td>
+    <td class="text task-status">{{task.Camera}} <br/> {{task.Resolution}}</td>    
+    <td>
+        <ng-transclude ng-transclude-slot="defaultActions"></ng-transclude>
+    </td>
+    <td class="numeric">{{task.Cost.toFixed(2)}}</td>
+    <td class="more">        
+        <ng-transclude ng-transclude-slot="menu"></ng-transclude>
+        <button class="mr-button flat" ng-click="cancelTaskRemove($event,task)" translate="Cancel"></button>   
+    </td>
+</tr>

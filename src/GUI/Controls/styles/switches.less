@@ -1,0 +1,91 @@
+label.control {
+    display: block;
+    position: relative;
+    cursor: pointer;
+
+    input {
+        position: absolute;
+        z-index: -1;
+        opacity: 0;
+    }
+
+    &.checkbox, &.radio {
+
+        height: @grid-step*2;        
+
+        .indicator {
+            position: absolute;            
+            height: @grid-step*2;
+            width: @grid-step*2;
+            border: 1px solid @control-active-foreground;
+            border-radius: 2px;
+
+            &:after {
+                content: '';
+                position: absolute;
+                display: none;
+            }
+        }
+
+        &:hover input ~ .indicator{            
+            background: @control-active-background;
+        }
+
+        &>input:checked ~ .indicator {
+            background: @control-active-background;
+
+            &:after {
+                display: block;
+            }
+        }
+
+        &:hover>input:not([disabled]):checked ~ .indicator
+        {
+          background: @control-active-background;
+        }
+
+        & input:disabled ~ .indicator {
+            background: @disabled-text-color;
+            opacity: 0.6;
+            pointer-events: none;
+
+            &:after {
+                background:@disabled-text-color;
+            }
+        }
+
+        span {
+            margin-left:25px;
+            .body2(@control-active-foreground);
+        }
+    }
+
+    &.checkbox {
+        &>.indicator:after {
+            left: 6px;
+            top: 4px;
+            width: 5px;
+            height: @grid-step;
+            border: solid @control-active-foreground;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+        }
+    }
+
+    &.radio {
+
+        &>.indicator
+        {
+            border-radius: 50%;
+            &:after {
+                left: 4px;
+                top: 4px;
+                height: 6px;
+                width: 6px;
+                background: @control-active-foreground;
+                border-radius: 50%;
+            }
+        }
+        
+    }
+}

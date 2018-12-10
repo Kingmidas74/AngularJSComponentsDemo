@@ -1,0 +1,1 @@
+let DemoWeb_GUI_Menu = angular.module('DemoWeb.Components.Menu', []);

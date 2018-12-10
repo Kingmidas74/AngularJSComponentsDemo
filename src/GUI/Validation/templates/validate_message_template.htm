@@ -1,0 +1,4 @@
+<div ng-messages="SettingsForm.{{::elementPath}}.$error" class="tooltip" ng-show="SettingsForm.{{::elementPath}}.$invalid && SettingsForm.{{::elementPath}}.$dirty">        
+    <div class="tooltiptext" ng-message="required" ng-show="SettingsForm.{{::elementPath}}.$error.required">This field is required!</div>
+    <div class="tooltiptext" ng-message="NotValid" ng-show="SettingsForm.{{::elementPath}}.$error.NotValid">Error value!</div>
+</div>

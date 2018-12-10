@@ -1,0 +1,27 @@
+section.mr.panel:extend(.flex-column) {
+    .card();
+    max-width: 800px;
+    min-width: 320px;
+    flex-grow: 1;
+    justify-content: flex-start;
+
+
+    div.header {
+        padding:@grid-step*2;
+        display: flex;
+        flex-flow: row;
+        justify-content: space-between;
+        align-items: center;
+        h2 {
+            .title(@primary-text-color);
+            text-align: left;  
+            flex-grow: 1;                
+        }
+        button.info {
+            
+        }            
+    }
+    div.content {
+        padding-bottom: @grid-step*2;
+    }
+}

@@ -1,0 +1,93 @@
+section.scene-list {
+    align-self: stretch;
+    padding: @grid-step*3;
+
+    &>*:not(:first-child) {
+        margin-top:@grid-step*3;
+    }
+
+    .scrollbar(@primary-color);
+    overflow: unset;
+
+    td.task-title {                
+        width:30%;
+        p.title {
+            .body2(@datatable-foreground);
+        }
+        p.data {
+            .caption(@datatable-foreground);
+        }
+
+        span.status {
+            &.HOLDED_BY_ADMIN {
+                .caption(@status-color-error);
+            }
+
+            &.QUEUED {
+                .caption(@status-color-queued);
+            }
+
+            &.FINISHED {
+                .caption(@status-color-success);
+            }
+        }
+        
+    }
+
+    td.status_picture {
+        &>.zmdi {
+            visibility: @visible-status;
+        }
+    }
+
+    td.task-status {
+        width:15%;
+        p.title {
+            .body2(@datatable-foreground);
+        }
+        p.data {
+            .caption(@datatable-foreground);
+        }
+    }
+
+    tr.active {
+        td.task-title { 
+            p.title {
+                .body2(@datatable-active-foreground);
+            }
+            p.data {
+                .caption(@datatable-active-foreground);
+            }
+        }
+    
+        td.task-status {
+            p.title {
+                .body2(@datatable-active-foreground);
+            }
+            p.data {
+                .caption(@datatable-active-foreground);
+            }
+        }
+    }
+
+    tr:hover {
+        td.task-title { 
+            p.title {
+                .body2(@datatable-hover-foreground);
+            }
+            p.data {
+                .caption(@datatable-hover-foreground);
+            }
+            
+        }
+    
+        td.task-status {
+            p.title {
+                .body2(@datatable-hover-foreground);
+            }
+            p.data {
+                .caption(@datatable-hover-foreground);
+            }
+        }
+    }
+}

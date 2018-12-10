@@ -1,0 +1,85 @@
+@keyframes horizontal-flip-animation {
+    from {
+        transform: scale(0, 0); 
+    }
+    to {
+        transform: scale(1, -1);
+    }
+}
+
+.keyframes(@name; @arguments) {
+	@-moz-keyframes @name { @arguments(); }
+	@-webkit-keyframes @name { @arguments(); }
+	@keyframes @name { @arguments(); }
+}
+
+.animation(@name, @arguments) {
+	-webkit-animation: @name @arguments;
+	-moz-animation: @name @arguments;
+	animation: @name @arguments;
+}
+
+.height-animation(@name; @from; @animation_arguments)
+{
+    //.keyframes(@name, {
+        //from { height: @from; }
+        //to { height: @to; }
+    //});
+    //.animation(@name, @animation_arguments);
+    //height:@to;
+}
+
+.horizontal-flip-animation(@animation-speed) {
+    animation:horizontal-flip-animation @animation-speed;
+    transform: scale(1, -1);
+}
+
+@keyframes wobble {
+    from {
+        transform: none;
+    }
+
+    15% {
+        transform: translate3d(-25%, 0, 0) rotate3d(0, 0, 1, -5deg);
+    }
+
+    30% {
+        transform: translate3d(20%, 0, 0) rotate3d(0, 0, 1, 3deg);
+    }
+
+    45% {
+        transform: translate3d(-15%, 0, 0) rotate3d(0, 0, 1, -3deg);
+    }
+
+    60% {
+        transform: translate3d(10%, 0, 0) rotate3d(0, 0, 1, 2deg);
+    }
+
+    75% {
+        transform: translate3d(-5%, 0, 0) rotate3d(0, 0, 1, -1deg);
+    }
+
+    to {
+        transform: none;
+    }
+}
+
+@keyframes spinner {
+    from {
+        transform: none;
+    }
+
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.animated(@title) {
+    animation-duration: 1s;
+    animation-fill-mode: both;
+    animation-iteration-count: infinite;
+    animation-name: @title;
+}

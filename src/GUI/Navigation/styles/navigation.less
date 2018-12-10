@@ -1,0 +1,115 @@
+div.navigation, aside {
+    .shadow();
+    z-index: 1200;
+    display:flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: stretch;
+
+    @divider-space:@grid-step;
+    @padding:@grid-step*2;
+
+    max-width: @grid-step*50;
+    background-color: @navigation-drawer-background;
+    
+    .scrollbar(@navigation-drawer-background);
+    overflow-x: hidden;
+    &.full {
+        min-width: @grid-step*40;
+    }
+
+    &.short {
+        width: @grid-step*7;
+    }
+
+    &>* {
+        //margin-top:@divider-space;
+
+        &:first-child {
+            margin-top: 0;
+        }
+    }
+
+
+    
+
+    & nav {
+        flex-grow: 1;
+
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: flex-start;
+        align-items: stretch;
+/*
+        &>ng-transclude>menu>* {
+            margin-top:@divider-space;
+        }*/
+
+        & section {
+            
+            display: flex;
+            flex-flow: column nowrap;
+            justify-content: flex-start;
+            align-items: stretch;
+            flex-shrink: 0;
+
+            @list-height:@grid-step*6;
+
+            
+
+            &>h2 {
+                height: @list-height;
+                padding:0 @padding;
+                .subheading(@navigation-drawer-foreground);
+            }
+
+            &>ul {
+                li {
+                    display: block;
+                }
+                a {
+                    display: flex;
+                    flex-flow: row nowrap;
+                    justify-content: flex-start;
+                    align-items: center;
+                    height: @list-height;
+                    .headline(@navigation-drawer-foreground);
+                    padding:0 @padding;
+                    text-decoration: none;
+                    cursor: pointer;
+
+                    &:hover {
+                        background-color: @navigation-drawer-hover-background;
+                        .headline(@navigation-drawer-hover-foreground);
+                    }
+
+                    &.active {
+                        //.headline(@secondary-color);
+                        background-color: @navigation-drawer-active-background;
+                        .headline(@navigation-drawer-active-foreground);
+                    }
+
+                    &>i {
+                        width:@icon-size;
+                        height:@icon-size;
+                    }
+                    &>span.list-title {
+                        margin-left: @grid-step*4;
+                        flex-grow:1;
+                    }
+                }
+            }
+        }
+        
+    }
+
+    &.short {
+        &>nav a>*:not(:first-child), &>ng-translcude>user>section.user-panel>*:not(:first-child)  {
+            display: none;
+        }
+    }
+
+    &>div.footer {
+        padding:0 @padding;
+    }
+}

@@ -1,0 +1,33 @@
+.aspect-ratio(@width, @height) {
+    position: relative;
+
+    &:before {
+        display: block;
+        content: "";
+        width: 100%;
+        padding-top: (@height / @width) * 100%;
+    }
+
+    > *:first-child {
+        &:extend(.flex-column);
+        position: absolute;
+        background-color: @secondary-color-light;
+        justify-content: center;
+        align-items: center;
+        width: 100%;/*
+        padding-top:-1*(@height / @width) * 100%;
+        padding-left:*/
+    }
+
+    &:hover {
+        > *:first-child {
+            background: @secondary-color;
+        }
+    }
+
+    &.selected {
+        > *:first-child {
+            background: @secondary-color-dark;
+        }
+    }
+}

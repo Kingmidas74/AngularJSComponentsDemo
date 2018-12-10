@@ -1,0 +1,77 @@
+button.mr-button {
+    @keyframes ripple {
+        0% {
+            transform: scale(0, 0);
+            opacity: 1;
+        }
+        20% {
+            transform: scale(25, 25);
+            opacity: 1;
+        }
+        100% {
+            opacity: 0;
+            transform: scale(40, 40);
+        }
+    }
+    
+    &:focus:not(:active)::after {
+        animation: ripple 1s @animation-type;
+    }
+
+    &:after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 5px;
+        height: 5px;
+        background: rgba(255, 255, 255, .5);
+        opacity: 0;
+        border-radius: 100%;
+        transform: scale(1, 1) translate(-50%);
+        transform-origin: 50% 50%;
+      }
+      
+
+    min-width:@grid-step*11;
+    height:36px;
+    border-radius: @corner;
+    cursor: pointer;
+    padding: 0 @grid-step*2;
+    background-color:@secondary-color;
+    border:1px solid @secondary-color-dark;    
+    .button(@primary-text-color);
+    font-family: @font-family;
+    position: relative;
+    overflow: hidden;
+
+    &.flat {
+        background-color:transparent;
+        border:none;        
+
+        &.input {
+            background-color:@secondary-color;
+            border-radius: @corner;
+        }
+    }
+
+    &.icon {
+        border-radius: 50%;        
+        background-color: transparent;
+        border:none;
+        min-width:36px;
+        max-width:36px;
+        padding: 0;
+    }
+
+    
+    
+    &:hover {
+        background-color:@secondary-color-light;
+    }
+
+    &:active:hover {
+        background-color:@secondary-color-dark;
+        border-color:@secondary-color-light;
+    }
+}

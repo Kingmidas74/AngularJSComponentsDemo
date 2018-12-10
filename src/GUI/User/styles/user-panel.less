@@ -1,0 +1,35 @@
+section.user-panel {
+
+    @padding:@grid-step*2;
+
+    
+    padding:0 @padding;
+    padding-left: @grid-step;
+    background-color: @navigation-drawer-background;
+    height: @grid-step*8;
+
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-items: center;
+
+    &>div.user-info {
+        margin-left: @grid-step*4;
+        flex-grow: 1;
+        &>span.user-name {
+            .body2(@navigation-drawer-foreground);
+        }
+
+        &>span.user-email {
+            .body1(@navigation-drawer-foreground)
+        }
+    }
+
+    i {
+        width:@icon-size;
+        height:@icon-size;
+        .headline(@navigation-drawer-foreground);
+    }
+
+    
+}

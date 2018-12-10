@@ -1,0 +1,26 @@
+<section class="user-panel">
+    <button class="mr-button icon " ng-click="ToggleNavigation()"><i class="zmdi zmdi-menu zmdi-hc-2x"></i></button>
+    <div class="user-info">
+        <span class="user-name">{{user.Name}} {{user.Surname}}</span><br>
+        <span class="user-email">{{user.EMail}}</span><br>
+    </div>
+</section>
+<!--
+<section class="userPanel" ng-show="user.Id>0">
+    <div class="userPanel_FIO">{{"Welcome1Text"|translate}} <span class="userPanel_FIO">{{user.Name}} {{user.Surname}}</span></div>
+    <div class="userPanel_Balance">{{"BalanceLabelText"|translate}}: {{user.Balance}} {{"MinutesUnitText"|translate}}</div>
+    <div class="userPanel_Rate">
+        {{"RateText"|translate}}:
+        <select ng-model="user.Tariff" ng-change="setUserRate(user.Tariff)">
+            <option ng-value="1" translate="LightRateItemText"></option>
+            <option ng-value="2" translate="EconomRateItemText"></option>
+            <option ng-value="3" translate="BusinessRateItemText"></option>
+            <option ng-value="4" translate="PremiumRateItemText"></option>
+        </select>
+    </div>
+    <div>
+        <a class="userPanel_Support" ng-click="CallToSupport()">{{"TechSupportLinkText"|translate}}</a>
+        <button ng-click="Exit()">{{'LogOutText'|translate}}</button>
+    </div>
+</section>
+-->

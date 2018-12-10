@@ -1,0 +1,55 @@
+#notification:extend(.flex-row) {
+    flex-grow: 0;
+    flex-shrink: 0;
+    width: @grid-step*40;
+    align-items: center;
+  //  background: #323232;
+    .subheading(@primary-text-color);
+    padding: @grid-step*2;
+    position: absolute;
+    height:@grid-step*6;
+    border-radius: @corner;    
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    bottom: -@grid-step*6;
+    display: none;
+    -webkit-transition:all .5s @animation-type;
+    -moz-transition:all .5s @animation-type;
+     -ms-transition:all .5s @animation-type;
+      -o-transition:all .5s @animation-type;
+         transition:all .5s @animation-type;
+
+    &.active {
+        bottom:inherit;
+        bottom: @grid-step*6;
+        display: flex;
+
+        &.SUCCESS {
+            .success()
+        }
+    
+        &.ERROR {
+            .error()
+        }
+    
+        &.WARNING {
+            .warning()
+        }
+    
+        &.INFO {
+            .info()
+        }
+    }   
+
+    span {
+        flex-grow:1;
+    }
+
+    button {
+        margin-left: @grid-step*3;
+        .button(@primary-text-color);
+    }
+
+    
+  }

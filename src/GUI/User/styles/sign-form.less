@@ -1,0 +1,29 @@
+form.sign-form:extend(.flex-column) {
+    .card();
+    flex-shrink: 0;
+    align-items: stretch;
+    padding: @grid-step*3;
+    max-width: 800px;
+    min-width: 320px;
+
+    &>h1{
+        .headline(@primary-text-color);
+        text-align: center;
+    }
+
+    div.sign-type:extend(.flex-row) {
+        justify-content: space-around;
+        flex-wrap: wrap;
+        &>* {
+            margin: @grid-step;
+        }
+    }
+
+    &>button, .checkbox {
+        align-self: center;
+    }
+
+    &>*:not(h1) {
+        margin-top: @grid-step*2;
+    }
+}

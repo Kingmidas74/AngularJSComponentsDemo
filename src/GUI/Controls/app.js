@@ -1,0 +1,1 @@
+let DemoWeb_GUI_Controls = angular.module('DemoWeb.Components.Controls', []);

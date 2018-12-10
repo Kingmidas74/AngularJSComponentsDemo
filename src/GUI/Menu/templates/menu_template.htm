@@ -1,0 +1,6 @@
+<div class="menu">
+    <button class="mr-button flat icon" ng-click="ToggleMenu($event)"><i class="zmdi zmdi-hc-2x zmdi-more-vert"></i></button>
+    <ul ng-show="isOpen" mr-outside-click="CloseMenu($event)">
+        <ng-transclude></ng-transclude>
+    </div>
+</div>

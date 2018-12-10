@@ -1,0 +1,27 @@
+.list {
+    list-style-type: none;
+    
+    &>li:extend(.flex-row) {
+        justify-content: flex-start;
+        align-items: stretch;
+        padding: @grid-step @grid-step*3;
+
+        &:not(:last-child) {
+            border-bottom: 1px @primary-color-dark solid;
+        }
+
+        &>div.info {
+            flex-grow: 1;
+
+            &>h3 {
+                .title(@primary-text-color);
+            }
+            &>h4 {
+                .subheading(@primary-text-color);
+            }
+        }
+        &>button {
+            align-self: center;
+        }
+    }
+}

@@ -1,0 +1,49 @@
+<div class="table"  ng-class="{'collapse': !scene.Expand}" ng-show="!scene.WillBeRemoved"  >
+    <div class="header collapsible progress" style="--progress-value:{{scene.Progress}}%;"  data-progress="{{scene.Progress}}" ng-hide="SelectedFIlesCount()>0">
+        <button class="mr-button icon " ng-click="ToggleCollapse()" ng-show="scene.Tasks.length>0"><i class="zmdi zmdi-hc-2x zmdi-chevron-up"></i></button>  
+        <div class="hgroup">
+            <h2>{{::scene.Title}}</h2>
+            <h4>{{"Status"|translate}}: {{scene.Status}}</h4>
+        </div>
+        <ng-transclude ng-transclude-slot="defaultActions"></ng-transclude>
+        <ng-transclude ng-transclude-slot="menu"></ng-transclude>        
+    </div>
+    <div class="header active" ng-show="SelectedFIlesCount()>0">
+        <div class="hgroup">
+            <h2>{{'ItemSelectedTitle' | translate}}: {{SelectedFIlesCount()}}</h2>
+        </div>
+        <ng-transclude ng-transclude-slot="actions"></ng-transclude>        
+    </div>    
+    <table ng-show="scene.Tasks.length>0">
+        <thead ng-class="{'invisible': !scene.Expand}">
+            <tr>
+                <td class="control">
+                    <mr-checkbox checked="scene.Selected" change="ChangeSelectScene"></mr-checkbox>                    
+                </td>
+                <td></td>
+                <td class="text" translate="Title"></td>
+                <td class="text" translate="Frames"></td>
+                <td class="text" translate="Resolution"></td>
+                <td class="text" translate="Camera"></td>                
+                <td translate="Action"> </td>
+                <td class="text" translate="Rate"></td>
+                <td class="numeric" translate="Cost"></td>
+                <td class="more"></td>
+            </tr>
+        </thead>
+        <tbody ng-class="{'invisible': !scene.Expand}" ng-transclude>
+          
+        </tbody>
+        <tfoot>
+            <tr>
+            <td></td>
+            <td colspan="7" class="numeric" translate="TotalCost"></td>
+            <td class="numeric">{{scene.Cost.toFixed(2)}}</td>
+            <td></td>
+            </tr>
+        </tfoot>
+    </table>
+    <!--<div class="footer" ng-show="(scene.Expand && scene.Tasks.length>0)">
+        <mr-table-paginator pages-info="scene.pages"></mr-table-paginator>
+    </div>-->
+</div>

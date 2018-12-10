@@ -1,0 +1,48 @@
+div.menu {
+    position: relative;
+    ul {
+        .card();
+        background-color: @menu-background;
+        position: absolute;
+        right: 0;
+        margin-top: @grid-step;
+        list-style: none;
+        text-align: right;
+        .body1(@menu-foreground);
+        padding: @grid-step 0;
+        z-index: 2;
+
+        li {
+            padding:0 @grid-step*2;
+            max-width: @grid-step*35;
+            min-width: @grid-step*13;
+            height: @grid-step*6;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+
+            &:hover {
+                background-color: @menu-hover-background;
+                .body1(@menu-hover-foreground);
+            }
+        }
+    }
+
+    & div.filter-settings {
+        .card();
+        background-color: @menu-background;
+        position: absolute;
+        right: 0;
+        margin-top: @grid-step;
+        list-style: none;
+        text-align: right;
+        .body1(@menu-foreground);
+        padding: @grid-step;
+        z-index: 2;
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: stretch;
+        justify-content: space-around;
+        min-width: @grid-step*30;
+    }
+}

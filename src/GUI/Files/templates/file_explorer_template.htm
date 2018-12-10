@@ -1,0 +1,53 @@
+
+<div class="shortcut-panel" ng-class="(state==true && files.length>0) ? 'expand' : 'collapse'" ng-show="ShowFileBar()"
+      >
+    <div class="title" ng-click="TogglePanel()" ng-show="SelectedFIlesCount()===0" hotkey="{f: TogglePanel}">
+        <i class="zmdi zmdi-hc-2x zmdi-chevron-up"></i>        
+        <h2 translate="FilePanelTitle"></h2>
+        <div class="upload-wrapper" ng-hide="isFileUpload">
+            <button class="mr-button flat input" translate="AddScene"></button>
+            <input type="file" mr-file-model="myFile" ng-click="StopPropagation($event)"/>
+        </div>
+    </div>
+    <div class="header active" ng-click="TogglePanel()" ng-show="SelectedFIlesCount()>0">
+        <h2>{{'ItemSelectedTitle' | translate}}: {{SelectedFIlesCount()}}</h2>
+        <button class="mr-button flat" translate="Create" ng-click="CreateScenes()"></button>
+        <button class="mr-button flat icon" ng-click="RemoveSelectedFiles()"><i class="zmdi zmdi-hc-2x zmdi-delete"></i></button>
+    </div>
+
+    <div class="content">
+        <div class="card table">
+            <table>
+                <thead>
+                    <tr>
+                        <td>
+                            <mr-checkbox checked="AllFilesSelected" change="ToggleAllFiles"></mr-checkbox>
+                        </td>
+                        <td class="text" translate="FileName"></td>                 
+                        <td class="text" translate="CreateDate"></td>
+                        <td class="numeric" translate="FileSize"></td>
+                        <td class="text"></td>
+                        <td></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="file in files" ng-class="{'select': file.Selected}" class="progress"  style="--progress-value:{{file.Progress}}%;" 
+                    data-progress="{{file.Progress}}" ng-click="ToggleSelection(file)">
+                        <td>
+                            <mr-checkbox checked="file.Selected"></mr-checkbox>
+                        </td>
+                        <td class="text">{{::file.Title}}</td>                 
+                        <td class="text">{{::file.Date}}</td>
+                        <td class="numeric" ng-if="file.Progress === 0">{{file.Size}} Mb</td>
+                        <td class="numeric" ng-if="file.Progress !== 0">{{file.Progress}}%</td>
+                        <td class="text"></td>
+                        <td>                            
+                            <button ng-if="!(file.Progress !== 0)" class="mr-button flat icon" ng-click="RemoveCurrentFile($event,file)"><i class="zmdi zmdi-hc-2x zmdi-delete"></i></button>
+                            <button ng-if="file.Selected && file.Progress !== 0" class="mr-button flat icon" ng-click="CancelFileUpload($event,file)"><i class="zmdi zmdi-hc-2x zmdi-close"></i></button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>            
+    </div>
+</div>

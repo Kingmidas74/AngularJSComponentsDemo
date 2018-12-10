@@ -1,0 +1,13 @@
+<div class="dialog">
+    <h2 ng-if="errorStatus === 'Double'" translate="DuplicateFileTitle"></h2>
+    <h2 ng-if="errorStatus === 'NotValidFileName'" translate="NotValidFileTitle"></h2>
+    <div class="content">
+        <mr-textfield value="oldFileName" type="text" change="textBoxChanged()">{{'Title' | translate}}</mr-textfield>
+        <mr-label ng-if="errorPattern">{{'ErrNotValidFileName' | translate}}</mr-label>
+        <mr-label ng-if="errorDouble">{{'ErrDoubleFileName' | translate}}</mr-label>
+    </div>
+    <div class="actions">
+        <button class="mr-button flat" translate="Cancel" ng-click="closeThisDialog()"></button>
+        <button class="mr-button flat" translate="Rename" ng-click="confirm(oldFileName)" disabled ng-disabled="errorPattern || errorDouble"></button>
+    </div>
+</div>

@@ -1,0 +1,74 @@
+div.table {
+    .card();
+    min-width: max-content;
+    background-color: @datatable-background;
+    &>div.header:extend(.flex-row) {
+        min-height:@grid-step*8;
+        background:transparent;
+        align-items: center;
+        justify-content: flex-end;
+        padding:0 @grid-step*3;
+        &>div.hgroup {
+            flex-grow: 1;
+            display: flex;
+            flex-flow: column;
+            align-items: flex-start;            
+            &>h2 {
+                .title(@datatable-foreground);            
+                text-overflow: ellipsis;
+                overflow: hidden;
+            }
+            &>h4 {
+                .caption(@datatable-foreground);
+                text-overflow: ellipsis;
+                overflow: hidden;
+            }
+        }
+
+        &>*:not(.hgroup) {
+            margin-left: @grid-step*3;
+        }   
+
+        &.active {
+            background: @datatable-active-background;
+            &>div.hgroup {
+                &>h2 {
+                    .title(@datatable-active-foreground);
+                }
+                &>h4 {
+                    .caption(@datatable-active-foreground);
+                }
+            }
+        }
+
+        &.collapsible {
+            padding:0 @grid-step*3 0 @grid-step*2;
+            &>*:first-child {
+                margin-left: 0px;
+                margin-right: @grid-step*2;
+            }
+            &>h2 {
+                margin-left: @grid-step*2;
+            }
+        }
+
+        &.progress {
+            @progress-value:var(--progress-value, auto);
+            .linear-gradient(@datatable-progressbar-background,transparent, @progress-value);
+        }
+    }
+
+
+    &>div.footer:extend(.flex-row) {
+        min-height: @grid-step*7;
+        align-items: center;
+        justify-content: flex-start;
+        padding:0 @grid-step*3;
+    }
+
+    &.collapse {
+        &>div.header>*:first-child {
+            transform: scale(1,-1);
+        }
+    }
+}

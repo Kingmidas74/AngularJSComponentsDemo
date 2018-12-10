@@ -1,0 +1,20 @@
+
+<form class="sign-form" novalidate autocomplete="off">
+    <h1 translate="ForAuthentifcation"></h1>
+    
+    <mr-language mode="box"  align="right"></mr-language>
+
+    <div class="sign-type">
+        <mr-radio checked="SignForm.SignType" group="SignType" value="signTypes.SignIn">{{"SignIn" | translate}}</mr-radio>                
+        <mr-radio checked="SignForm.SignType" group="SignType" value="signTypes.Rest">{{"Restore" | translate}}</mr-radio>                
+    </div>
+
+    <mr-textfield value="SignForm.email" type="text" is-required="true">Email</mr-textfield>
+    <mr-textfield value="SignForm.password" type="password" ng-if="SignForm.SignType===signTypes.SignIn" is-required="true">{{'PasswordPlaceholder' | translate}}</mr-textfield>
+    
+    <input type="hidden" tabindex="8" placeholder="" ng-model="SignForm.hidden"/>
+    
+    <button class="mr-button classic " ng-click="SendForm()" translate="SignIn" ng-if="SignForm.SignType===signTypes.SignIn"></button>
+    <button class="mr-button classic " ng-click="SendForm()"translate="Restore" ng-if="SignForm.SignType===signTypes.Rest"></button>
+    
+</form>

@@ -1,0 +1,29 @@
+header.mr.appbar {
+
+    @appbar-height:@grid-step*8;
+    @appbar-leftright-padding:@grid-step*3;
+    @appbar-icon-padding:@grid-step*2;
+
+   // .shadow();
+    
+    height:@appbar-height;
+    background-color: @appbar-background;
+
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-items: center;
+
+    &>*:last-child {
+        margin-right:@appbar-leftright-padding;
+    }
+
+    &>* {
+        margin-left:@appbar-icon-padding;
+    }
+
+    &>h1 {
+        .title(@appbar-foreground); 
+        flex-grow: 1;
+    }
+}

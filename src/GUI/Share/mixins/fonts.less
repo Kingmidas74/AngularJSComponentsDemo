@@ -1,0 +1,81 @@
+//all+2px
+
+.font_size(@size)
+{
+    font-size: ((@size+2)/16)*1em;
+}
+
+.font_opacity(@color, @opacity) {
+    color: rgba(red(@color), green(@color), blue(@color), @opacity);
+}
+
+.display4(@color) {
+    font-weight: @font-light;
+    .font_size(112);
+    color:fade(@color,54%);
+}
+
+.display3(@color) {
+    font-weight: @font-regular;
+    .font_size(56);
+    color:fade(@color,54%);
+}
+
+.display2(@color) {
+    font-weight: @font-regular;
+    .font_size(45);
+    color:fade(@color,54%);
+}
+
+.display1(@color) {
+    font-weight: @font-regular;
+    .font_size(34);
+    color:fade(@color,54%);
+}
+
+.headline(@color) {
+    font-weight: @font-regular;
+    .font_size(24);
+    color:fade(@color,87%);
+}
+
+.title(@color) {
+    font-weight: @font-medium;
+    .font_size(20);
+    color:fade(@color,87%);
+}
+
+.subheading(@color) {
+    font-weight: @font-regular;
+    .font_size(15);
+    color:fade(@color,87%);
+}
+
+.body2(@color) {
+    font-weight: @font-medium;
+    .font_size(13);
+    color:fade(@color,87%);
+}
+
+.body1(@color) {
+    font-weight: @font-regular;
+    .font_size(13);
+    color:fade(@color,87%);
+}
+
+.caption(@color) {
+    font-weight: @font-regular;
+    .font_size(12);
+    color:fade(@color,54%);
+}
+
+.button(@color) {
+    font-weight: @font-medium;
+    .font_size(14);
+    text-transform: uppercase;
+    color:fade(@color,87%);
+}
+
+.menu(@color) {
+    color:fade(@color,87%);
+}

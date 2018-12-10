@@ -1,0 +1,35 @@
+<div>
+    <mr-panel show-help-listener="showHelpFillUpHandler">
+        <header>{{'AddMoneyFormTitle' | translate}}</header>
+        <form class="converter">
+            <div class="pay-fields">
+                <mr-textfield is-required="true" value="balance.MinutesValue" type="text" change="balance.ChangeMinutes()">{{'Minutes' | translate}}</mr-textfield>
+                <mr-textfield is-required="true" value="balance.MoneyValue" type="text" change="balance.ChangeMoney()">{{'Money' | translate}}</mr-textfield>
+                <div class="select2">
+                    <select ng-model="balance.CurrencyCB">
+                        <option ng-value="'RUB'">RUR</option>
+                        <option ng-value="'USD'">USD</option>
+                        <option ng-value="'EUR'">EUR</option>
+                    </select>
+                    <i class="zmdi zmdi-hc-2x zmdi-chevron-down"></i>
+                </div>
+            </div>
+            <div class="grid payment-systems">
+                <div class="payment-system" ng-class="{'selected': balance.PaymentSystem=='WALLET_ONE'}" ng-click="balance.PaymentSystem='WALLET_ONE'">
+                    <img class="ps" src="images/payment-systems/wallet.png" />
+                </div>
+                <div class="payment-system" ng-class="{'selected': balance.PaymentSystem=='PAYPAL'}" ng-click="balance.PaymentSystem='PAYPAL'">
+                    <img class="ps" src="images/payment-systems/paypal.png" />
+                </div>
+                <div class="payment-system" ng-class="{'selected': balance.PaymentSystem=='SBERBANK'}" ng-click="balance.PaymentSystem='SBERBANK'">
+                    <img class="ps" src="images/payment-systems/sberbank.png" />
+                </div>
+                <div class="payment-system" ng-class="{'selected': balance.PaymentSystem=='ELECTRON'}" ng-click="balance.PaymentSystem='ELECTRON'">
+                    <img class="ps" src="images/payment-systems/electron.png" />
+                </div>
+            </div>
+            <mr-checkbox checked="balance.CBRules">{{'PaymentAgree' | translate}}</mr-checkbox>
+            <button ng-disabled="balance.InProcess" class="mr-button flat" translate="FillUpMoney" ng-click="balance.Pay()"></button>
+        </form>
+    </mr-panel>
+</div>

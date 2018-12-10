@@ -1,0 +1,72 @@
+form.converter:extend(.flex-column) {
+    align-items: stretch;
+    flex-shrink: 0;
+    div.payment-systems {
+        .grid(4);
+        justify-content: center;
+    }
+    p.payment-currency {
+        .caption(@primary-text-color);
+    }
+    &>button {
+        margin: @grid-step*3;
+        align-self: center;
+    }
+    &>label.control {
+        align-self: center;
+        margin-bottom: @grid-step;
+        &.checkbox {
+            align-self: flex-start;
+            padding-left: @grid-step*3;
+        }
+    }
+    img.ps {
+        padding: @grid-step;
+    }
+    .pay-fields {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-around;
+        &>* {
+            width: 45%;
+        }
+        div.select2 {
+            select {
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                -ms-appearance: none;
+                appearance: none;
+                outline: 0;
+                box-shadow: none;
+                border: 0 !important;
+                background: @primary-color-light;
+                background-image: none;
+                margin: 0;
+                .body2(@primary-text-color);
+                cursor: pointer;
+                option {
+                    text-align: center;
+                    text-align-last: center;
+                }
+                &::-ms-expand {
+                    display: none;
+                }
+            }
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: flex-start;
+            align-items: center;
+            background: @primary-color-light;
+            border-radius: @corner;
+            max-width:@grid-step*25;
+            min-width: @grid-step*9;
+            text-align-last: center;
+            i {
+                .body2(@primary-text-color)
+            }
+            &:hover {
+                color: @secondary-color;
+            }
+        }
+    }
+}

@@ -1,0 +1,28 @@
+
+<form class="sign-form" novalidate autocomplete="off">
+    <h1 translate="ForAuthentifcation" ng-if="SignForm.SignType===signTypes.SignIn"></h1>
+    <h1 translate="ForRegistration" ng-if="SignForm.SignType===signTypes.SignUp"></h1>
+    
+    <div class="sign-type">
+        <mr-radio checked="SignForm.SignType" group="SignType" value="signTypes.SignIn">{{"SignIn" | translate}}</mr-radio>        
+        <mr-radio checked="SignForm.SignType" group="SignType" value="signTypes.SignUp">{{"SignUp" | translate}}</mr-radio>        
+        <mr-radio checked="SignForm.SignType" group="SignType" value="signTypes.Rest">{{"Restore" | translate}}</mr-radio>        
+    </div>
+
+    <mr-textfield value="SignForm.name" type="text" ng-if="SignForm.SignType===signTypes.SignUp" is-required="true" >{{'NamePlaceholder' | translate}}</mr-textfield>
+    <mr-textfield value="SignForm.surname" type="text" ng-if="SignForm.SignType===signTypes.SignUp" is-required="true">{{'SurnamePlaceholder' | translate}}</mr-textfield>
+    <mr-textfield value="SignForm.email" type="text" is-required="true">Email</mr-textfield>
+    <mr-textfield value="SignForm.code" type="text" ng-if="SignForm.SignType===signTypes.SignUp" is-required="true">{{'KeyPlaceholder' | translate}}</mr-textfield>
+    <mr-textfield value="SignForm.password" type="password" ng-if="SignForm.SignType!==signTypes.Rest" is-required="true">{{'PasswordPlaceholder' | translate}}</mr-textfield>
+    <mr-textfield value="SignForm.repassword" type="password" ng-if="SignForm.SignType===signTypes.SignUp" is-required="true">{{'RepeatPasswordPlaceholder' | translate}}</mr-textfield>
+
+    <mr-checkbox checked="SignForm.remember" ng-if="SignForm.SignType===signTypes.SignIn">{{'RememberMe' | translate}}</mr-checkbox>
+
+    <input type="hidden" tabindex="8" placeholder="" ng-model="SignForm.hidden"/>
+    
+    <button class="mr-button classic " ng-click="SendForm()" translate="SignIn" ng-if="SignForm.SignType===signTypes.SignIn"></button>
+    <button class="mr-button classic " ng-click="SendForm()"translate="SignUp" ng-if="SignForm.SignType===signTypes.SignUp"></button>
+    <button class="mr-button classic " ng-click="SendForm()"translate="Restore" ng-if="SignForm.SignType===signTypes.Rest"></button>
+    
+    <mr-connect ng-if="SignForm.SignType===signTypes.SignIn"></mr-connect>
+</form>

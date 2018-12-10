@@ -1,0 +1,5 @@
+<label class="control checkbox" ng-click="changeValue($event,checked)">
+    <input type="checkbox" ng-model="checked" ng-change="$event.stopPropagation()" ng-click="$event.stopPropagation()"/>
+    <div class="indicator"></div>
+    <span><ng-transclude></ng-transclude></span>
+</label>

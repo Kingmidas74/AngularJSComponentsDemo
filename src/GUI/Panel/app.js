@@ -1,0 +1,1 @@
+let DemoWeb_GUI_Panel = angular.module('DemoWeb.Components.Panel', []);

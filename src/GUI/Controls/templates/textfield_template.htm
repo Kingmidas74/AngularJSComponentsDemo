@@ -1,0 +1,6 @@
+<div class="textfield">      
+    <input type="{{::type}}" placeholder="{{::placeholder}}" ng-required="isRequired" ng-model="value" ng-change="change()" autocomplete="off" ng-model-options="{debounce: 400}">
+    <span class="bar"></span>
+    <label ng-class="{'required' : isRequired}"><ng-transclude></ng-transclude></label>
+    <span class="error-message"></span>
+</div>

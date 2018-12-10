@@ -1,0 +1,8 @@
+<div ng-show="progressBarState.value>0 && progressBarState.value<100" class="listprogress">
+    <progress id="progress" max="100" value="{{progressBarState.value}}">
+        <div class="progress-bar">
+            <span style="width: {{progressBarState.value}}%;">Progress: {{progressBarState.value}}%</span>
+        </div>
+        {{progressBarState.value}}%
+    </progress>
+</div>

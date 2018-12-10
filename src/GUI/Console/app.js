@@ -1,0 +1,1 @@
+let DemoWeb_GUI_Console = angular.module('DemoWeb.Components.Console', []);

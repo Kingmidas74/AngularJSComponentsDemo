@@ -1,0 +1,26 @@
+div.dialog:extend(.flex-column) {
+    .card;
+    width:calc( 100vw - @grid-step*6 );
+    background-color: @dialog-background;
+
+    h2 {
+        .title(@dialog-foreground);
+        padding-top:@grid-step*3;
+        padding-bottom: @grid-step*3;
+        padding-left:@grid-step*3;
+        padding-right: @grid-step*3;
+    }
+
+    div.content {
+        padding:@grid-step*3;
+        padding-top:0;
+        .body2(@dialog-foreground);
+    }
+
+    div.actions:extend(.flex-row) {
+        padding: @grid-step;
+        padding-top: 0;
+        justify-content: flex-end;
+        align-items: center;
+    }
+}
